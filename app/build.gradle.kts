@@ -34,6 +34,13 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
     buildToolsVersion = "34.0.0"
+
+    // sign release with debug keys, because whatever.
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
 }
 dependencies {
     implementation(files(android.sdkDirectory.toString() + "/add-ons/addon-google_gdk-google-19/libs/gdk.jar"))
